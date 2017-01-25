@@ -297,9 +297,6 @@ export class AvailabilityService {
          * @return {boolean}
          */
         static checkUserAvailabilty(user, start, end) {
-            console.info("AvailabilityService.checkUserAvailabilty for user", user, " from", start, "to", end);
-            var availabilities = user.availabilities;
-
             var availabilityIndex = AvailabilityService.getIndexOfSurroundingAvailability(user, start, end);
 
             if (availabilityIndex == null) {
