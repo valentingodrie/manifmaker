@@ -194,12 +194,15 @@ export class AvailabilityService {
                     start: {$lte : start},
                     end: {$gt : end},
                 });
+                if(!term) return;
 
                 //lets say an availabity start will always match a period start
                 //(just because UI will never allow it)
 
                 start = new moment(start);
                 end = new moment(end);
+
+                if(!period) return;
 
                 //we have the term, let's find the period
                 var period = _.find(term.assignmentTermPeriods, function(period){

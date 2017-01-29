@@ -63,8 +63,9 @@ class AssignmentTasksList extends BlazeComponent {
                         } else
                             sAlert.error(`Could not remove assignment : ${error.reason}`)
                     });
+                    //TODO reset something
                     AssignmentReactiveVars.IsUnassignment.set(false);
-                } else
+                } else {
                     Meteor.call("assignUserToTaskTimeSlot", AssignmentReactiveVars.SelectedPeopleNeed.get()._id, userId, function (error, result) {
                         if (!error) {
                             //we have to reset the task list this way because once assigned, the task can't propose any peopleNeed for the user as he is
@@ -76,10 +77,12 @@ class AssignmentTasksList extends BlazeComponent {
                             //reset workflow
                             AssignmentReactiveVars.SelectedAvailability.set(null);
 
-                            AssignmentServiceClient.congratsAssignment(AssignmentType.USERTOTASK,_idTask);
+                            AssignmentServiceClient.congratsAssignment(AssignmentType.USERTOTASK, _idTask);
                         } else
                             sAlert.error(`Could not assignment : ${error.reason}`)
                     });
+                    //TODO reset something
+                }
                 break;
             case AssignmentType.TASKTOUSER:
                 break;

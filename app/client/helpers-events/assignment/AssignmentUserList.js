@@ -54,13 +54,16 @@ class AssignmentUserList extends BlazeComponent {
                                 sAlert.error(`Could not remove assignment : ${error.reason}`)
                         });
                     AssignmentReactiveVars.IsUnassignment.set(false)
-                } else
-                    Meteor.call("assignUserToTaskTimeSlot", AssignmentReactiveVars.SelectedPeopleNeed.get()._id, _id,function(error, result){
-                        if(!error){
-                            AssignmentServiceClient.congratsAssignment(AssignmentType.TASKTOUSER,_id);
-                        }else
+                    //TODO reset something
+                } else {
+                    Meteor.call("assignUserToTaskTimeSlot", AssignmentReactiveVars.SelectedPeopleNeed.get()._id, _id, function (error, result) {
+                        if (!error) {
+                            AssignmentServiceClient.congratsAssignment(AssignmentType.TASKTOUSER, _id);
+                        } else
                             sAlert.error(`Could not add assignment : ${error.reason}`)
                     });
+                    //TODO reset something
+                }
                 AssignmentReactiveVars.SelectedTimeSlot.set(null);
                 break;
         }

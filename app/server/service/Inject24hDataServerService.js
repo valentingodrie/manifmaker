@@ -629,8 +629,8 @@ export class Inject24hDataServerService {
                         end: InjectDataHelperServerService. getDateFromDateAndHourMinute(2017, 4, 19, 8, 0)
                     },
                     {
-                        start: InjectDataHelperServerService. getDateFromDateAndHourMinute(2017, 4, 29, 6, 0),
-                        end: InjectDataHelperServerService. getDateFromDateAndHourMinute(2017, 4, 29, 8, 0)
+                        start: InjectDataHelperServerService. getDateFromDateAndHourMinute(2017, 5, 19, 18, 0),
+                        end: InjectDataHelperServerService. getDateFromDateAndHourMinute(2017, 5, 22, 0, 0)
                     }
                 ]
             }
@@ -779,7 +779,30 @@ export class Inject24hDataServerService {
                             teamId: this.softTeam
                         }
                     ]
-                }
+                },
+                {
+                    start: InjectDataHelperServerService.getDateFromDateAndHourMinute(2017,5,19, 10,0),
+                    end: InjectDataHelperServerService.getDateFromDateAndHourMinute(2017,5,19, 12,0),
+                    peopleNeeded: [
+                        {
+                            skills: [this.conducteurFenSkill]
+                        },
+                        {
+                            teamId: this.softTeam
+                        }
+                        ,
+                        {
+                            teamId: this.softTeam
+                        }
+                        ,
+                        {
+                            teamId: this.softTeam
+                        },
+                        {
+                            teamId: this.softTeam
+                        }
+                    ]
+                },
             ]
         });
         //var task3d = Tasks.insert({
